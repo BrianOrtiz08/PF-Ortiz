@@ -1,0 +1,36 @@
+//Import Variables
+@import "utilities/variables";
+
+%titulos{
+    font-family: $texto-titulos;
+    font-weight: bold;
+}
+
+%parrafos{
+    font-family: $texto-parrafo;
+    font-weight: normal;
+}
+
+%bg-img{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+%lista{
+    list-style: none;
+}
+
+%portada{
+    height: 70vh;
+    margin: 1rem auto;
+    background-image: url(../img/generales/img-banner.jpg);
+    border-radius: 1rem;
+    overflow: hidden;
+    background-position: bottom;
+    color: $color-uno;
+}
+
+%decoracion{
+    cursor: pointer;
+    text-decoration: underline;
+}

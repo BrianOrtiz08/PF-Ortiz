@@ -1,0 +1,116 @@
+//Import Variables
+@import "utilities/variables";
+
+//Import Mixins
+@import "utilities/mixins";
+
+//Import Extends
+@import "utilities/extends";
+
+//Main
+.galeria-main {
+    @extend %portada;
+    @extend %bg-img;
+    width: 90%;
+
+    .galeria-main__titulo {
+        margin: 0;
+        @extend %titulos;
+        font-size: $size-h2;
+        text-align: center;
+        text-transform: uppercase;
+        padding-top: 1rem;
+    }
+}
+
+//Section
+.galeria-section {
+    width: 90%;
+    margin: 2rem auto 1rem;
+    color: $color-uno;
+
+    .galeria__titulo {
+        text-align: center;
+        font-size: $size-h4;
+        @extend %titulos;
+        text-transform: uppercase;
+        @extend %decoracion;
+    }
+
+    .galeria__contenedor {
+        @include grid(100%, repeat(3, 50vh), 1rem);
+
+        .galeria__img {
+            @include image;
+            object-position: bottom;
+        }
+
+        .galeria__imagen-tablet {
+            display: none;
+        }
+    }
+}
+
+/*MEDIA QUERIE TABLET*/
+@media screen and (min-width: 768px) {
+
+    //Section
+    .galeria-section {
+        .galeria__contenedor {
+            @include grid(50% 50%, repeat(3, 40vh), 1rem);
+            grid-template-areas:
+                "uno img-dos"
+                "uno img-tres"
+                "img-cuatro img-tres"
+            ;
+
+            .galeria__imagen-tablet {
+                display: block;
+            }
+
+            .img-uno {
+                grid-area: uno;
+            }
+
+            .img-dos {
+                grid-area: img-dos;
+            }
+
+            .img-tres {
+                grid-area: img-tres;
+            }
+
+            .img-cuatro {
+                grid-area: img-cuatro;
+            }
+        }
+    }
+}
+
+/*MEDIA QUERIE DESKTOP*/
+@media screen and (min-width: 1024px) {
+
+    //Section
+    .galeria-section {
+        margin-top: 2rem;
+
+        .galeria__titulo {
+            font-size: $size-h3;
+            padding-bottom: 1rem;
+        }
+
+        .galeria__contenedor {
+            grid-template-rows: repeat(3, 40vh);
+
+            .galeria__imagen {
+                .galeria__img {
+                    transition: all .5s;
+
+                    &:hover {
+                        @include hover-img;
+                    }
+                }
+            }
+        }
+    }
+}
